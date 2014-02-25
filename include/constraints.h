@@ -11,21 +11,61 @@ enum ConstrType{
 	CT_PARALLEL
 };
 //constraint on ortho 2 lines
-class ConstrOrto
-{
+class ConstrOrtho{
 	double *x11, *y11, *x12, *y12;
 	double *x21, *y21, *x22, *y22;
 
 public:
-	ConstrOrto(GeLine &l1, GeLine &l2);
-	double error();
-
-
+	ConstrOrtho(){
+		x11 = 0; y11 = 0; x12 = 0; y12 = 0;
+		x21 = 0, y21 = 0; x22 = 0; y22 = 0;
+	};
+	ConstrOrtho(GeLine &l1, GeLine &l2){
+		x11 = &l1.beg.x; y11 = &l1.beg.y; x12 = &l1.end.x; y12 = &l1.end.y;
+		x21 = &l2.beg.x, y21 = &l2.beg.y; x22 = &l1.end.x; y22 = &l2.end.y;
+	};
+	double error(){
+		double p, p1, q, q1;
+		double p = x12 - x11, p1 = x22 - x22;
+		double q = y12 - y11, q1 = y22 - y21;
+		
+		if (p*p1 + q*q1 == 0)
+			return 0;
+		else{
+			double cos;
+			cos = (p*p1 + q*q1)/(sqrt(pow(p, 2) + pow(q, 2))*sqrt(pow(p1, 2) + pow(q1, 2)));
+			return cos;
+		}
+	};
 };
 //constraint on parallel 2 lines
-class ConstrParallel
-{
-	double error();
+class ConstrParallel{
+	double *x11, *y11, *x12, *y12;
+	double *x21, *y21, *x22, *y22;
+
+public:
+	ConstrParallel(){
+		x11 = 0; y11 = 0; x12 = 0; y12 = 0;
+		x21 = 0, y21 = 0; x22 = 0; y22 = 0;
+	};
+	ConstrParallel(GeLine &l1, GeLine &l2){
+		x11 = &l1.beg.x; y11 = &l1.beg.y; x12 = &l1.end.x; y12 = &l1.end.y;
+		x21 = &l2.beg.x, y21 = &l2.beg.y; x22 = &l1.end.x; y22 = &l2.end.y;
+	};
+	double error(){
+		double p, p1, q, q1;
+		double p = x12 - x11, p1 = x22 - x22;
+		double q = y12 - y11, q1 = y22 - y21;
+		
+		if (p * q1 == p1 * q)
+			return 1;
+		else{
+			double cos, sin;
+			cos = (p*p1 + q*q1)/(sqrt(pow(p, 2) + pow(q, 2))*sqrt(pow(p1, 2) + pow(q1, 2)));
+			sin = sqrt(1 - pow(cos, 2));
+			return sin;
+		}
+	};
 };
 //constraint "Is point on the line?"
 class ConstrPoOnLine
