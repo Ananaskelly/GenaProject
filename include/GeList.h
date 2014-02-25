@@ -18,7 +18,7 @@ public:
 
 	void rewind(); // Возвращает _current к первому элементу
 	void next(); // Перемещает _current к следующему элементу
-	T getData();// Получение данных, соответствующих _current 
+	T& getData();// Получение данных, соответствующих _current 
 	bool canMove();
 };
 
@@ -67,11 +67,8 @@ template<typename T> void GeList<T>::next()
 {
 	_current = _current->next;
 }
-template<typename T> T GeList<T>::getData()
-{ T new_ob;
-new_ob = _current->data;
-return new_ob;
-}
+template<typename T> T& GeList<T>::getData()
+{ return _current->data;}
 template<typename T> bool GeList<T>::canMove()
 {
 	if (_current->next) return true;
