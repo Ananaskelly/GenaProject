@@ -6,4 +6,14 @@ enum ConstrType{
 	CT_PARALLEL
 };
 
+// Ограничение ортогональности 2 отрезков
+class ConstrOrtho{
+};
+// Ограничение параллельности 2 отрезков
+class ConstrParallel{
+};
+// Ограничение принадлежности точки отрезку
+class ConstrPonL{
+};
+
 #endif
