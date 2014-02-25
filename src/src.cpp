@@ -1,7 +1,11 @@
 #include "GeList.h"
+#include "GeObj.h"
 #include <iostream>
 int main(){
-	GeList li;
+	GePoint p;
+	GePoint p1(p);
+
+	GeList<int> li;
 	li.add(2);
 	li.add(3);
 	li.add(5);
