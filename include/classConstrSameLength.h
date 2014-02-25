@@ -1,7 +1,7 @@
-#include "math.h"
+п»ї#include "math.h"
 #include "GeObj.h"
 
-class ConstrSameLength{ //определяет, имеют ли отрезки одинаковую длину
+class ConstrSameLength{ //РѕРїСЂРµРґРµР»СЏРµС‚, РёРјРµСЋС‚ Р»Рё РѕС‚СЂРµР·РєРё РѕРґРёРЅР°РєРѕРІСѓСЋ РґР»РёРЅСѓ
 	double *x11, *y11, *x12, *y12;
 	double *x21, *y21, *x22, *y22;
 public:
