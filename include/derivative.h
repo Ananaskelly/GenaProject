@@ -3,7 +3,7 @@
 #include "vector"
 using namespace std;
 #define Function function<double(vector<double>)>
-#define Eps 0.15
+#define Eps 0.15 //
 double Derivative(Function func,int dx,vector<double> x)
 {
 	int f=0;

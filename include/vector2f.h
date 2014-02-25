@@ -44,8 +44,8 @@ class vector2f
         vector2f turn(double a, vector2f v); // поворот вектора вокруг заданной точки
 
         DOTPOS classify(vector2f v0, vector2f v1); // отношение текущей точки, относительно прямой v0v1
-        vector2f perp(vector2f v0, vector2f v1); // возвращается перпендикулр, опускаймый из текущей точки  на прямую v0v1
-        double distance(vector2f v0, vector2f v1); // растояние  от текущей точки до прямой v0v1
+        vector2f perp(vector2f v0, vector2f v1); // возвращается перпендикуляр, опускаймый из текущей точки  на прямую v0v1
+        double distance(vector2f v0, vector2f v1); // раcстояние  от текущей точки до прямой v0v1
         bool inCircle(vector2f c, double R); // принадлежит ли точка окружности
         std::string toString();
     protected:
