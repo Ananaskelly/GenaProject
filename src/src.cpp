@@ -1,14 +1,33 @@
+
+#include "GeUI.h"
 #include "GeList.h"
 #include "GeObj.h"
 #include <iostream>
-int main(){
+
+using namespace std;
+
+
+// TEST!
+void draw()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	drawLine(10, 15, 100, 80);
+
+	glFlush();
+}
+
+int main(int argc, char* argv[])
+{
+	// Init GUI
+	GeUI gui;
+	gui.MyDraw = draw;
+	gui.init(&argc, argv);
+
+	//////////////////////
+
 	int v = 1;
-	int &rv;
-	rv += 3;
 	std::cout << "v = " << v << std::endl;
-
-
-
 
 	GePoint p;
 

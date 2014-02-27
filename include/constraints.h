@@ -1,4 +1,4 @@
-#include "GeOBJ.h"
+#include "GeObj.h"
 #include "math.h"
 
 #ifndef _CONSTRAINTS_H
@@ -10,6 +10,7 @@ enum ConstrType{
 	CT_ORTHO = 0,
 	CT_PARALLEL
 };
+
 //constraint on ortho 2 lines
 class ConstrOrtho{
 	double *x11, *y11, *x12, *y12;
@@ -20,14 +21,15 @@ public:
 		x11 = 0; y11 = 0; x12 = 0; y12 = 0;
 		x21 = 0, y21 = 0; x22 = 0; y22 = 0;
 	};
+	
 	ConstrOrtho(GeLine &l1, GeLine &l2){
 		x11 = &l1.beg.x; y11 = &l1.beg.y; x12 = &l1.end.x; y12 = &l1.end.y;
 		x21 = &l2.beg.x, y21 = &l2.beg.y; x22 = &l1.end.x; y22 = &l2.end.y;
-	};
+	}; 
 	double error(){
 		double p, p1, q, q1;
-		double p = x12 - x11, p1 = x22 - x22;
-		double q = y12 - y11, q1 = y22 - y21;
+		p = *x12 - *x11, p1 = *x22 - *x22;
+		q = *y12 - *y11, q1 = *y22 - *y21;
 		
 		if (p*p1 + q*q1 == 0)
 			return 0;
@@ -54,8 +56,8 @@ public:
 	};
 	double error(){
 		double p, p1, q, q1;
-		double p = x12 - x11, p1 = x22 - x22;
-		double q = y12 - y11, q1 = y22 - y21;
+		p = *x12 - *x11, p1 = *x22 - *x22;
+		q = *y12 - *y11, q1 = *y22 - *y21;
 		
 		if (p * q1 == p1 * q)
 			return 1;
