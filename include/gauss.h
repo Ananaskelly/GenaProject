@@ -1,14 +1,18 @@
 #include "vector"
 #include "iostream"
+#include <cmath>
 #include "GeMatrix.h"
+
 using namespace std;
 //#define NO_SOLUTION -1
+
 #define MIN_ROOT -100
 #define MAX_ROOT 100
-/*vector<double>*/bool Gauss(GeMatrix v,int n,int m,vector<double>& res)
+
+/*vector<double>*/bool Gauss(GeMatrix<double> v,int n,int m,vector<double>& res)
 {
 	//vector<double> res;
-	vector<pair<double,double> > mains;
+	vector<pair<int, int> > mains;
 	res.assign(n,0);
 	int t=0,j=0;
 	for(j=0;j<m&&t<n;t++)
@@ -16,9 +20,9 @@ using namespace std;
 		double main_el=0;
 		int cur=-1;
 		for(int i=j;i<m;i++)
-			if(abs(v.At(i,t))>main_el)
+			if(abs(v[i][t])>main_el)
 			{
-				main_el=abs(v.At(i,t));
+				main_el=abs(v[i][t]);
 				cur=i;
 			}
 			if(cur!=-1)
@@ -32,7 +36,7 @@ using namespace std;
 			for(int i=j+1;i<m;i++)
 				for(int k=n;k>=j;k--)
 				{
-					v.Set(i,k,v.At(j,k)*(v.At(i,t)/v.At(j,t)));
+					v.Set(i,k,v[j][k]*(v[i][t]/v[j][t]));
 				}
 				j++;
 	}
@@ -42,15 +46,16 @@ using namespace std;
 	{
 		double r=v[mains[i].first][n];
 		for(int j=mains[i].second+1;j<n;j++)
-			r-=v.At(mains[i].first,j)*res[j];
-		res[mains[i].second]=r/v.At(mains[i].first,mains[i].second);
+			r-=v[mains[i].first][j]*res[j];
+
+		res[mains[i].second]=r/v[mains[i].first][mains[i].second];
 	}
 	for(int i=mains[mains.size()-1].first+1;i<m;i++)
 	{
 		double r=0;
 		for(int j=0;j<n;j++)
-			r+=v.At(i,j)*res[j];
-		if(r!=v.At(i,n))
+			r+=v[i][j]*res[j];
+		if(r!=v[i][n])
 			return 0;
 	}
 	return 1;
