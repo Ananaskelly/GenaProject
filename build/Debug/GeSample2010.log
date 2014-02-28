@@ -1,0 +1,25 @@
+﻿Build started 28.02.2014 13:04:55.
+     1>Project "D:\GitProject\build\GeSample2010.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\GeSample2010.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /I"D:\GitProject\build\glut-3.7.6-bin" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\src\src.cpp
+         src.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitProject\build\Debug\GeSample2010.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\build\glut-3.7.6-bin" glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GeSample2010.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GitProject\build\Debug\GeSample2010.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitProject\build\Debug\GeSample2010.lib" /MACHINE:X86 Debug\GeCore.obj
+         Debug\GeList.obj
+         Debug\GeMatrix.obj
+         Debug\GeUI.obj
+         Debug\src.obj
+     1>GeCore.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+         GeSample2010.vcxproj -> D:\GitProject\build\Debug\GeSample2010.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\GitProject\build\Debug\GeSample2010.exe;#1" /manifest Debug\GeSample2010.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\GeSample2010.unsuccessfulbuild".
+         Touching "Debug\GeSample2010.lastbuildstate".
+     1>Done Building Project "D:\GitProject\build\GeSample2010.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.70
