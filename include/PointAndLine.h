@@ -1,7 +1,12 @@
 #include<iostream>
 #include"containt.h"
+//#include"geron.h"
 
-class PandL{
+struct IConstraint{// наследование от одного базового класса
+	virtual double error();
+};
+
+class PandL:public IConstraint{
 // передаем в качестве аргументов функции координаты трех точек, первые две - координаты концов отрезка, 
 //последняя - координаты точки 
 	double *x1,*y1,*x2,*y2,*x3,*y3;
@@ -18,6 +23,15 @@ double PandL::error(){
 
 	else 
 		{
-			return //;
+
+	double r1,r2,r3,h,p,S;
+	r1=sqrt(pow((x1-x2),2)+pow((y1-y2),2) );
+	r2=sqrt(pow((x1-x3),2)+pow((y1-y3),2) );
+	r3=sqrt(pow((x2-x3),2)+pow((y2-y3),2) );
+	p=(r1+r2+r3)/2;
+	S= sqrt(p*(p-r1)*(p-r2)*(p-r3));
+	h=(2*S)/r1;
+	return h;
+
 	    }
 }
